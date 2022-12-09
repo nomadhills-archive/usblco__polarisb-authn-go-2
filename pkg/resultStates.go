@@ -10,7 +10,13 @@ const (
 	UserFound
 	UserNotFound
 	UserAlreadyExists
+	InvalidPasswd
+	UserSigninSuccess
 	CouldNotGeneratePasswordHash
+	CouldNotGeJwtSigningKey
+	CouldNotGetJwtExpirationTime
+	CouldNotSignJwt
+	AccessTokenCreated
 	SystemHealthReposIsNil
 )
 

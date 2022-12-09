@@ -19,6 +19,7 @@ func InitializeEndpoints(routerGroup *gin.RouterGroup, actions *actions.Actions,
 	r := endpoints.GinRouterGroup.Group(formatApiPrefix(apiPrefix))
 	r.GET("/system/health", endpoints.HealthEndpoint)
 	r.POST("/register", endpoints.RegisterEndpoint)
+	r.POST("/signin", endpoints.SigninEndpoint)
 	endpoints.GinRouterGroup = r
 
 	return endpoints

@@ -51,5 +51,5 @@ func (p *PolarisbNativeAuthn) initializeEndpoints() {
 		return
 	}
 
-	p.internal.InitializeEndpoints(p.config.GinRouterGroup, "/api")
+	p.internal.InitializeEndpoints(p.config.GinRouterGroup, "/authn")
 }

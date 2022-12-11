@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/usblco/polarisb-authn-go/pkg"
 	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"net/http"
 )
 
 func (endpoints *Endpoints) SigninEndpoint(c *gin.Context) {
@@ -69,7 +70,27 @@ func (endpoints *Endpoints) SigninEndpoint(c *gin.Context) {
 	}
 
 	// Generate a JWT refresh token
-	// TODO: Implement refresh token
+	refreshToken, state, err := endpoints.Actions.RefreshTokenCreate(user)
+	if err != nil {
+		// Return json response
+		c.JSON(500, contracts.SigninEndpointReturnDto{
+			Err: "Something went wrong",
+		})
+		return
+	}
+
+	// Set the refresh token in the cookies
+	// set sameSite to none to allow cross origin
+	c.SetSameSite(http.SameSiteNoneMode)
+	// set secure to true to allow only https
+	c.SetCookie(
+		endpoints.AppConfiguration.Defaults.RefreshTokenSettings.CookieName,
+		refreshToken,
+		60*60*24*30,
+		endpoints.AppConfiguration.Defaults.RefreshTokenSettings.CookiePath,
+		endpoints.AppConfiguration.Defaults.RefreshTokenSettings.CookieDomain,
+		endpoints.AppConfiguration.Defaults.RefreshTokenSettings.CookieShouldBeSecure.Bool(),
+		endpoints.AppConfiguration.Defaults.RefreshTokenSettings.CookieShouldBeHttpOnly.Bool())
 
 	// Return json response
 	c.JSON(200, contracts.SigninEndpointReturnDto{

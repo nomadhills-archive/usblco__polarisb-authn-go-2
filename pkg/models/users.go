@@ -6,13 +6,15 @@ import (
 )
 
 type PolarisbUser struct {
-	Id           uuid.UUID `json:"id"`
-	Email        string    `json:"email"`
-	Username     string    `json:"username"`
-	Passwordhash string
-	Fullname     string `json:"fullname"`
-	CreateDate   string `json:"createDate"`
-	Role         int    `json:"role"`
+	Id                uuid.UUID `json:"id"`
+	Email             string    `json:"email"`
+	VerifiedEmail     string    `json:"verifiedEmail"`
+	VerifiedEmailCode string    `json:"verifiedEmailCode"`
+	Username          string    `json:"username"`
+	Passwordhash      string
+	Fullname          string `json:"fullname"`
+	CreateDate        string `json:"createDate"`
+	Role              int    `json:"role"`
 }
 
 func (m PolarisbUser) CheckPassword(password string) bool {

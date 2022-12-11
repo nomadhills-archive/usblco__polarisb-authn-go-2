@@ -5,9 +5,15 @@ import (
 	"github.com/glebarez/sqlite"
 	"github.com/usblco/polarisb-authn-go/internal/pkg/actions"
 	"github.com/usblco/polarisb-authn-go/internal/pkg/httpEndpoints"
+	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
 	"github.com/usblco/polarisb-authn-go/internal/pkg/repos"
+	"github.com/usblco/polarisb-authn-go/pkg/contracts"
 	"gorm.io/gorm"
 )
+
+func (internal *PolarisbNativeAuthnInternal) InitializeAppConfiguration(config *contracts.ConfigurationProvider) {
+	internal.AppConfiguration = config
+}
 
 func (internal *PolarisbNativeAuthnInternal) InitializeGormDBConnectionIfNotDoneUsingSQLite(sqlitePath string) {
 	if internal.DB != nil {
@@ -35,13 +41,20 @@ func (internal *PolarisbNativeAuthnInternal) InitializeDefaultPolarisbUserRepo()
 }
 
 func (internal *PolarisbNativeAuthnInternal) InitializeActions() {
-	internal.Actions = actions.InitializeActions(internal.Repos)
+	internal.Actions = actions.InitializeActions(internal.Repos, internal.AppConfiguration)
+}
+
+func (internal *PolarisbNativeAuthnInternal) InitializeMiddleware() {
+	internal.Middleware = middleware.InitializeMiddleware(internal.Actions, internal.AppConfiguration)
 }
 
 func (internal *PolarisbNativeAuthnInternal) InitializeEndpoints(routerGroup *gin.RouterGroup, apiPrefix string) {
 	if internal.Actions == nil {
 		panic("actions not initialized")
 	}
+	if internal.Middleware == nil {
+		panic("middleware not initialized")
+	}
 	internal.GinRouterGroup = routerGroup
-	internal.Endpoints = httpEndpoints.InitializeEndpoints(routerGroup, internal.Actions, apiPrefix)
+	internal.Endpoints = httpEndpoints.InitializeEndpoints(routerGroup, internal.Actions, internal.Middleware, internal.AppConfiguration, apiPrefix)
 }

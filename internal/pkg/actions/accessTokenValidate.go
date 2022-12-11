@@ -6,11 +6,11 @@ import (
 	"time"
 )
 
-// RefreshTokenValidate validates a refresh token. If token is vaalid, it returns a result state of JwtTokenVerified. If token is invalid, it returns a result state of JwtTokenInvalid.
-func (actions *Actions) RefreshTokenValidate(refreshTokenString string) (refreshToken *jwt.Token, state pkg.ResultState, err error) {
+// AccessTokenValidate validates an access token. If token is vaalid, it returns a result state of JwtTokenVerified. If token is invalid, it returns a result state of JwtTokenInvalid.
+func (actions *Actions) AccessTokenValidate(accessTokenString string) (refreshToken *jwt.Token, state pkg.ResultState, err error) {
 
 	// parse token
-	token, err := jwt.Parse(refreshTokenString, func(token *jwt.Token) (interface{}, error) {
+	token, err := jwt.Parse(accessTokenString, func(token *jwt.Token) (interface{}, error) {
 		// validate signing method
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, errInvalidJwtSigningMethod
@@ -28,7 +28,7 @@ func (actions *Actions) RefreshTokenValidate(refreshTokenString string) (refresh
 		}
 
 		// validate token type
-		if token.Claims.(jwt.MapClaims)["type"] != "refresh" {
+		if token.Claims.(jwt.MapClaims)["type"] != "authn" {
 			return nil, errInvalidJwtTokenType
 		}
 
@@ -52,3 +52,4 @@ func (actions *Actions) RefreshTokenValidate(refreshTokenString string) (refresh
 
 	return nil, pkg.Unknown, nil
 }
+

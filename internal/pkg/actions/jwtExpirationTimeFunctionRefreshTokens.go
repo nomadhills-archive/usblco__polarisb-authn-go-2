@@ -6,5 +6,5 @@ import (
 )
 
 func (action *Actions) jwtExpirationTimeFunctionRefreshTokens(user *models.PolarisbUser) (expTime time.Time, error error) {
-	return time.Now().Add(time.Hour * 24 * 30), nil
+	return time.Now().Add(time.Hour * 24 * 1), nil
 }

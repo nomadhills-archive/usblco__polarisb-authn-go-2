@@ -6,6 +6,7 @@ import (
 	"github.com/usblco/polarisb-authn-go/pkg/models"
 )
 
+// AccessTokenCreate creates an access token. Returns the access token, a result state, and an error. The result state is one of the following: AccessTokenCreated, CouldNotGeJwtSigningKey.
 func (actions *Actions) AccessTokenCreate(user *models.PolarisbUser) (accessToken string, state pkg.ResultState, error error) {
 	// Create the token
 	token := jwt.New(jwt.SigningMethodHS256)
@@ -30,8 +31,8 @@ func (actions *Actions) AccessTokenCreate(user *models.PolarisbUser) (accessToke
 		"type":     "authn",
 		"id":       user.Id,
 		"email":    user.Email,
-		"username": user.Username,
-		"fullname": user.Fullname,
+		"username": "user.Username",
+		"fullname": "user.Fullname",
 		"role":     user.Role,
 		"exp":      expTime.Unix(),
 	}

@@ -14,7 +14,7 @@ type JwtFunctions struct {
 
 func newJwtFunctions(actions *Actions) *JwtFunctions {
 	return &JwtFunctions{
-		ExpirationTimeFunctionAuthorizationTokens: actions.jwtExpirationTimeFunctionAuthorizationTokens,
+		ExpirationTimeFunctionAuthorizationTokens: actions.jwtExpirationTimeFunctionAccessTokens,
 		ExpirationTimeFunctionRefreshTokens:       actions.jwtExpirationTimeFunctionRefreshTokens,
 		SigningKeyFunction:                        actions.jwtSigningKeyFunction,
 		LookupSigningKeyFunction:                  actions.jwtLookupSigningKeyFunction,

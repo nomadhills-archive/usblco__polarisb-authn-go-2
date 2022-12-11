@@ -1,6 +1,10 @@
 package polarisb_authn_go_2
 
-import "github.com/usblco/polarisb-authn-go/internal"
+import (
+	"github.com/usblco/polarisb-authn-go/internal"
+	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
+	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+)
 
 func AddPolarisbaseNativeAuthn(config *PolarisbNativeAuthnConfiguration) *PolarisbNativeAuthn {
 
@@ -9,12 +13,19 @@ func AddPolarisbaseNativeAuthn(config *PolarisbNativeAuthnConfiguration) *Polari
 		internal: internal.AddPolarisbNativeAuthnInternal(),
 	}
 
+	app.initializeAppConfiguration()
 	app.setupDatabaseConnection()
 	app.setupPolarisbUserRepo()
 	app.initializeActions()
+	app.initializeMiddleware()
 	app.initializeEndpoints() // This should always be called last
 
 	return app
+}
+
+func (p *PolarisbNativeAuthn) initializeAppConfiguration() {
+	p.config.appConfigurationProvider = contracts.NewConfigurationProvider(p.config.AppConfiguration)
+	p.internal.InitializeAppConfiguration(p.config.appConfigurationProvider)
 }
 
 func (p *PolarisbNativeAuthn) setupDatabaseConnection() {
@@ -42,6 +53,16 @@ func (p *PolarisbNativeAuthn) setupPolarisbUserRepo() {
 
 func (p *PolarisbNativeAuthn) initializeActions() {
 	p.internal.InitializeActions()
+}
+
+func (p *PolarisbNativeAuthn) initializeMiddleware() {
+	if p.internal == nil {
+		panic("internal not initialized, must call AddPolarisbaseNativeAuthn first")
+	}
+	if p.internal.Actions == nil {
+		panic("actions not initialized")
+	}
+	p.internal.Middleware = middleware.InitializeMiddleware(p.internal.Actions, p.internal.AppConfiguration)
 }
 
 func (p *PolarisbNativeAuthn) initializeEndpoints() {

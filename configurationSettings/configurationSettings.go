@@ -1,4 +1,4 @@
-package ConfigurationSettings
+package configurationSettings
 
 type ConfigurationSettings struct {
 	RefreshTokenSettings *RefreshTokenSettings `json:"refreshTokenSettings,omitempty"`

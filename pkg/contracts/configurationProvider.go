@@ -2,17 +2,17 @@ package contracts
 
 import (
 	"encoding/json"
-	"github.com/usblco/polarisb-authn-go/ConfigurationSettings"
+	"github.com/usblco/polarisb-authn-go/configurationSettings"
 )
 
 type ConfigurationProvider struct {
-	Defaults *ConfigurationSettings.ConfigurationSettings
-	Override *ConfigurationSettings.ConfigurationSettings
+	Defaults *configurationSettings.ConfigurationSettings
+	Override *configurationSettings.ConfigurationSettings
 }
 
-func NewConfigurationProvider(overrideSettings *ConfigurationSettings.ConfigurationSettings) *ConfigurationProvider {
+func NewConfigurationProvider(overrideSettings *configurationSettings.ConfigurationSettings) *ConfigurationProvider {
 	cp := &ConfigurationProvider{
-		Defaults: ConfigurationSettings.NewDefaultConfigurationSettings(),
+		Defaults: configurationSettings.NewDefaultConfigurationSettings(),
 		Override: overrideSettings,
 	}
 

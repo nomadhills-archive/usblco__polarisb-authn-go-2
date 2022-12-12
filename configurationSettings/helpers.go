@@ -1,4 +1,4 @@
-package ConfigurationSettings
+package configurationSettings
 
 type BoolExtended int
 

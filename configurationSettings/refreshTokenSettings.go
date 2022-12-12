@@ -1,4 +1,4 @@
-package ConfigurationSettings
+package configurationSettings
 
 type RefreshTokenSettings struct {
 	CookieShouldBeHttpOnly BoolExtended `json:"cookieShouldBeHttpOnly,omitempty"`

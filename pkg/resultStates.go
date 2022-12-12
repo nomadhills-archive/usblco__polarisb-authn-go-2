@@ -15,6 +15,9 @@ const (
 	UserInvalidId
 	UserEmailVerified
 	UserEmailNotVerified
+	UserUpdated
+	UserCreateVerifyEmailCode
+	UserCouldNotCreateVerifyEmailCode
 	InvalidPasswd
 	UserSigninSuccess
 	CouldNotGeneratePasswordHash

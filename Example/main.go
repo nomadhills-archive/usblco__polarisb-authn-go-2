@@ -4,6 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	polarisb_authn_go_2 "github.com/usblco/polarisb-authn-go"
 	"github.com/usblco/polarisb-authn-go/ConfigurationSettings"
+	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"time"
 )
 
 func main() {
@@ -22,6 +24,8 @@ func main() {
 				CookieShouldBeHttpOnly: ConfigurationSettings.False,
 			},
 		},
+	}).SetExpirationTimeFunctionAuthorizationTokens(func(user *models.PolarisbUser) (expTime time.Time, error error) {
+		return time.Now().Add(time.Second * 45), nil
 	})
 
 	// Serve API (begin service loop)

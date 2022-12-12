@@ -59,3 +59,8 @@ func (k *UsersStore) LookUpUserById(ctx context.Context, id uuid.UUID) (*models.
 
 	return result, pkg.UserFound, nil
 }
+
+func (k *UsersStore) UpdateUserObject(ctx context.Context, user *models.PolarisbUser) (pkg.ResultState, error) {
+	k.dbconn.Save(user)
+	return pkg.UserUpdated, nil
+}

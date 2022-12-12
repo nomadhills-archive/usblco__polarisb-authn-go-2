@@ -4,6 +4,8 @@ import (
 	"github.com/usblco/polarisb-authn-go/internal"
 	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
 	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"time"
 )
 
 func AddPolarisbaseNativeAuthn(config *PolarisbNativeAuthnConfiguration) *PolarisbNativeAuthn {
@@ -73,4 +75,10 @@ func (p *PolarisbNativeAuthn) initializeEndpoints() {
 	}
 
 	p.internal.InitializeEndpoints(p.config.GinRouterGroup, "/authn")
+}
+
+func (p *PolarisbNativeAuthn) SetExpirationTimeFunctionAuthorizationTokens(
+	function func(user *models.PolarisbUser) (expTime time.Time, error error)) *PolarisbNativeAuthn {
+	p.internal.Actions.JwtFunctions.ExpirationTimeFunctionAuthorizationTokens = function
+	return p
 }

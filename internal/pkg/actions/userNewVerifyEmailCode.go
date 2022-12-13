@@ -1,9 +1,9 @@
 package actions
 
 import (
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/crypto"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/crypto"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 func (actions *Actions) UserNewVerifyEmailCode(user *models.PolarisbUser) (string, pkg.ResultState, error) {

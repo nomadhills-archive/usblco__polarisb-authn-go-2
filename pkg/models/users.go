@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/google/uuid"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/internalModels"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/internalModels"
 )
 
 type PolarisbUser struct {

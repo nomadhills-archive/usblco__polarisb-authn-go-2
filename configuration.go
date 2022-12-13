@@ -2,9 +2,9 @@ package polarisb_authn_go_2
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/usblco/polarisb-authn-go/configurationSettings"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
-	"github.com/usblco/polarisb-authn-go/pkg/repos"
+	"github.com/usblco/polarisb-authn-go-2/configurationSettings"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/pkg/repos"
 )
 
 type PolarisbNativeAuthnConfiguration struct {

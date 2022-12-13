@@ -1,10 +1,10 @@
 package polarisb_authn_go_2
 
 import (
-	"github.com/usblco/polarisb-authn-go/internal"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/internal"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/middleware"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 	"time"
 )
 

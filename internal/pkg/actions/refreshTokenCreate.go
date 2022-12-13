@@ -2,8 +2,8 @@ package actions
 
 import (
 	"github.com/golang-jwt/jwt"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 func (actions *Actions) RefreshTokenCreate(user *models.PolarisbUser) (accessToken string, state pkg.ResultState, error error) {

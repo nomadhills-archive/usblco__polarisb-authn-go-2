@@ -2,7 +2,7 @@ package actions
 
 import (
 	"errors"
-	"github.com/usblco/polarisb-authn-go/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
 )
 
 var (

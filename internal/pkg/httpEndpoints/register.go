@@ -2,8 +2,8 @@ package httpEndpoints
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 )
 
 func (endpointApp *Endpoints) RegisterEndpoint(c *gin.Context) {

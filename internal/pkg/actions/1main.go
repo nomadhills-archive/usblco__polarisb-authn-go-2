@@ -1,8 +1,8 @@
 package actions
 
 import (
-	"github.com/usblco/polarisb-authn-go/internal/pkg/repos"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/repos"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 )
 
 type Actions struct {

@@ -2,9 +2,9 @@ package httpEndpoints
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/actions"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/actions"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/middleware"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 )
 
 type Endpoints struct {

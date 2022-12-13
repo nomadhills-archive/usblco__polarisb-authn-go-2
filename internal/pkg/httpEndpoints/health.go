@@ -2,7 +2,7 @@ package httpEndpoints
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/usblco/polarisb-authn-go/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
 )
 
 func (e *Endpoints) HealthEndpoint(c *gin.Context) {

@@ -2,7 +2,7 @@ package contracts
 
 import (
 	"encoding/json"
-	"github.com/usblco/polarisb-authn-go/configurationSettings"
+	"github.com/usblco/polarisb-authn-go-2/configurationSettings"
 )
 
 type ConfigurationProvider struct {

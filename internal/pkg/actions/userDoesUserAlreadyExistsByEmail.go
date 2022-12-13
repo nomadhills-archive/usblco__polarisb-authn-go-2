@@ -1,6 +1,6 @@
 package actions
 
-import "github.com/usblco/polarisb-authn-go/pkg"
+import "github.com/usblco/polarisb-authn-go-2/pkg"
 
 // UserDoesUserAlreadyExistsByEmail looks up a user by email, return state should be UserFound for success
 func (action *Actions) UserDoesUserAlreadyExistsByEmail(address string) (pkg.ResultState, error) {

@@ -2,8 +2,8 @@ package actions
 
 import (
 	"github.com/google/uuid"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 // UserGetById gets a user from the database by id. Returns the user, a result state, and an error. The result state is one of the following: UserFound, UserNotFound.

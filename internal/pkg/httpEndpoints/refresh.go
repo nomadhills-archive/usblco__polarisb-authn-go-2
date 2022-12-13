@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 )
 
 func (endpoints *Endpoints) RefreshEndpoint(c *gin.Context) {

@@ -2,8 +2,8 @@ package actions
 
 import (
 	"github.com/golang-jwt/jwt"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 // AccessTokenCreate creates an access token. Returns the access token, a result state, and an error. The result state is one of the following: AccessTokenCreated, CouldNotGeJwtSigningKey.

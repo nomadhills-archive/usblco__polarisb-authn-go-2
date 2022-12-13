@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/actions"
-	"github.com/usblco/polarisb-authn-go/pkg"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/actions"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
 	"net/http"
 )
 

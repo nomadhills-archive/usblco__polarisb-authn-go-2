@@ -1,8 +1,8 @@
 package actions
 
 import (
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 func (actions *Actions) UserIsEmailVerified(user *models.PolarisbUser) pkg.ResultState {

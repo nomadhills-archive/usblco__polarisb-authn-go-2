@@ -3,11 +3,11 @@ package internal
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/glebarez/sqlite"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/actions"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/httpEndpoints"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/middleware"
-	"github.com/usblco/polarisb-authn-go/internal/pkg/repos"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/actions"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/httpEndpoints"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/middleware"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/repos"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 	"gorm.io/gorm"
 )
 

@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	polarisb_authn_go_2 "github.com/usblco/polarisb-authn-go"
-	"github.com/usblco/polarisb-authn-go/configurationSettings"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	polarisb_authn_go_2 "github.com/usblco/polarisb-authn-go-2"
+	"github.com/usblco/polarisb-authn-go-2/configurationSettings"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 	"time"
 )
 

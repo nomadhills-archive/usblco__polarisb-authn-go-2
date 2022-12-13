@@ -3,9 +3,9 @@ package repos
 import (
 	"context"
 	"github.com/google/uuid"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
-	"github.com/usblco/polarisb-authn-go/pkg/repos"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg/repos"
 	"gorm.io/gorm"
 	"strings"
 )

@@ -1,4 +1,4 @@
-module github.com/usblco/polarisb-authn-go
+module github.com/usblco/polarisb-authn-go-2
 
 go 1.18
 

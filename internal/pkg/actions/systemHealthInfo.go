@@ -2,8 +2,8 @@ package actions
 
 import (
 	"errors"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/contracts"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 )
 
 func (action *Actions) SystemHealthInfo() (contracts.SystemHealthEndpointReturnDto, pkg.ResultState, error) {

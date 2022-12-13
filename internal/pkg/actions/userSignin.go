@@ -1,8 +1,8 @@
 package actions
 
 import (
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 // UserSigninByEmail signs in a user by email and password and returns a user object and result state. Result state should be UserSigninSuccess for success or InvalidPassword or UserNotFound.

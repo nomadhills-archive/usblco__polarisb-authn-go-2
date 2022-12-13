@@ -1,9 +1,9 @@
 package actions
 
 import (
-	"github.com/usblco/polarisb-authn-go/internal/pkg/internalModels"
-	"github.com/usblco/polarisb-authn-go/pkg"
-	"github.com/usblco/polarisb-authn-go/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/internalModels"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
+	"github.com/usblco/polarisb-authn-go-2/pkg/models"
 )
 
 // UserCreate creates a new user. Returns the user object, the result state, and an error. The result state should be UserCreated for success.

@@ -18,6 +18,8 @@ const (
 	UserUpdated
 	UserCreateVerifyEmailCode
 	UserCouldNotCreateVerifyEmailCode
+	UserHasRole
+	UserDoesNotHaveRole
 	InvalidPasswd
 	UserSigninSuccess
 	CouldNotGeneratePasswordHash

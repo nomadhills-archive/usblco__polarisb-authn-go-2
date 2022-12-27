@@ -3,6 +3,8 @@ package httpEndpoints
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
+	"github.com/usblco/polarisb-authn-go-2/internal/pkg/actions"
+	"github.com/usblco/polarisb-authn-go-2/pkg"
 )
 
 func getAuthorizationTokenFromHeader(c *gin.Context) (string, error) {
@@ -27,4 +29,15 @@ func getRefreshTokenFromCookies(c *gin.Context) (string, error) {
 	}
 
 	return refreshToken, nil
+}
+
+func checkIfAuthorizedByRole(role string, a *actions.Actions, c *gin.Context) bool {
+	user, state, _ := a.UserGetAuthenticatedUserFromContext(c)
+	if state != pkg.UserAuthenticated {
+		return false
+	}
+
+	// check if user has role
+	isAuthorized, _, _ := a.CheckIfAuthorizedByRole(role, user)
+	return isAuthorized
 }

@@ -14,6 +14,15 @@ type UsersStore struct {
 	dbconn *gorm.DB
 }
 
+func (k *UsersStore) GetFirst() (*models.PolarisbUser, pkg.ResultState, error) {
+	result := &models.PolarisbUser{}
+	k.dbconn.First(result)
+	if result.Id == uuid.Nil {
+		return nil, pkg.UserNotFound, nil
+	}
+	return result, pkg.UserFound, nil
+}
+
 func (k *UsersStore) GetAll() ([]*models.PolarisbUser, pkg.ResultState, error) {
 	var result []*models.PolarisbUser
 	k.dbconn.Find(&result)

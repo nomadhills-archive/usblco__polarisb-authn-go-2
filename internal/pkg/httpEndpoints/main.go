@@ -26,7 +26,8 @@ func InitializeEndpoints(routerGroup *gin.RouterGroup, actions *actions.Actions,
 	authenticationRequired := r.Group("").Use(middleware.Authenticate())
 
 	r.GET("/system/health", endpoints.HealthEndpoint)
-	r.POST("/register", endpoints.RegisterEndpoint)
+	r.POST("/system/create-admin", endpoints.CreateAdmin)
+	authenticationRequired.POST("/register", endpoints.RegisterEndpoint)
 	r.POST("/signin", endpoints.SigninEndpoint)
 	r.GET("/signout", endpoints.SignoutEndpoint)
 	r.GET("/token/refresh", endpoints.RefreshEndpoint)

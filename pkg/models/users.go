@@ -13,8 +13,10 @@ type PolarisbUser struct {
 	Username          string    `json:"username"`
 	Passwordhash      string
 	Fullname          string `json:"fullname"`
+	Firstname         string `json:"firstname"`
+	Lastname          string `json:"lastname"`
 	CreateDate        string `json:"createDate"`
-	Role              int    `json:"role"`
+	Role              string `json:"role"`
 }
 
 func (m PolarisbUser) CheckPassword(password string) bool {

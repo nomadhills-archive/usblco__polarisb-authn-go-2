@@ -20,6 +20,9 @@ type IPolarisbUserRepo interface {
 	// GetAll returns all users, return state should be UserFound for success
 	GetAll() ([]*models.PolarisbUser, pkg.ResultState, error)
 
+	// GetFirst returns the first user, return state should be UserFound for success
+	GetFirst() (*models.PolarisbUser, pkg.ResultState, error)
+
 	// UpdateUserObject updates a user object, return state should be UserUpdated for success
 	UpdateUserObject(ctx context.Context, user *models.PolarisbUser) (pkg.ResultState, error)
 }

@@ -17,6 +17,9 @@ type IPolarisbUserRepo interface {
 	// LookUpUserById looks up a user by id, return state should be UserFound for success
 	LookUpUserById(ctx context.Context, id uuid.UUID) (*models.PolarisbUser, pkg.ResultState, error)
 
+	// GetAll returns all users, return state should be UserFound for success
+	GetAll() ([]*models.PolarisbUser, pkg.ResultState, error)
+
 	// UpdateUserObject updates a user object, return state should be UserUpdated for success
 	UpdateUserObject(ctx context.Context, user *models.PolarisbUser) (pkg.ResultState, error)
 }

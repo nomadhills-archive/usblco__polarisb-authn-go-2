@@ -14,6 +14,12 @@ type UsersStore struct {
 	dbconn *gorm.DB
 }
 
+func (k *UsersStore) GetAll() ([]*models.PolarisbUser, pkg.ResultState, error) {
+	var result []*models.PolarisbUser
+	k.dbconn.Find(&result)
+	return result, pkg.UserFound, nil
+}
+
 // InitializeBasicUsersStore new project store
 func InitializeUsersRepo(dbconn *gorm.DB) repos.IPolarisbUserRepo {
 	// todo: handle error

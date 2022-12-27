@@ -32,6 +32,7 @@ func InitializeEndpoints(routerGroup *gin.RouterGroup, actions *actions.Actions,
 	r.GET("/token/refresh", endpoints.RefreshEndpoint)
 	authenticationRequired.GET("/token/info", endpoints.TokenInfoEndpoint)
 	authenticationRequired.GET("/user/info", endpoints.UserInfoEndpoint)
+	authenticationRequired.GET("/user/get-all", endpoints.UsersGetAllEndpoint)
 
 	endpoints.GinRouterGroup = r
 

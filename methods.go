@@ -5,6 +5,7 @@ import (
 	"github.com/usblco/polarisb-authn-go-2/internal/pkg/middleware"
 	"github.com/usblco/polarisb-authn-go-2/pkg/contracts"
 	"github.com/usblco/polarisb-authn-go-2/pkg/models"
+	"github.com/usblco/polarisb-authn-go-2/pkg/publicActions"
 	"time"
 )
 
@@ -20,6 +21,7 @@ func AddPolarisbaseNativeAuthn(config *PolarisbNativeAuthnConfiguration) *Polari
 	app.setupPolarisbUserRepo()
 	app.initializeActions()
 	app.initializeMiddleware()
+	app.initializePublicActions()
 	app.initializeEndpoints() // This should always be called last
 
 	return app
@@ -75,6 +77,10 @@ func (p *PolarisbNativeAuthn) initializeEndpoints() {
 	}
 
 	p.internal.InitializeEndpoints(p.config.GinRouterGroup, "/authn")
+}
+
+func (p *PolarisbNativeAuthn) initializePublicActions() {
+	p.Actions = publicActions.InitializePublicActions(p.internal)
 }
 
 func (p *PolarisbNativeAuthn) SetExpirationTimeFunctionAuthorizationTokens(
